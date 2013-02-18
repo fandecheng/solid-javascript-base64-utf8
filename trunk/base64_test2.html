@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>base64_test2</title>
+    <script language="javascript" src="base64_robbie.js"></script>
+    <script language="javascript" src="base64_robbie_test.js"></script>
+    <script language="javascript" type="text/javascript">
+function body_load()
+{
+    var i;
+    var test_result;
+    var log = document.getElementById("div_log");
+
+    test_result = RobbieTest_RunAll();
+    for (i = 0; i < test_result.length; ++i) {
+        log_text(log, test_result[i] ? "passed" : "FAILED");
+    }
+}
+
+/* Refering to
+ * my-stuff\Programming\Documents\201x\Web\HTML5\Canvas\canvas_test.html */
+function log_text(logdiv, text)
+{
+    var cn;
+    var i;
+
+    logdiv.appendChild(document.createElement("div"));
+    for (i = 0, cn = logdiv.childNodes; i < cn.length; i++) {
+        if (i == cn.length - 1) {
+            cn[i].appendChild(document.createTextNode(text));
+        }
+    }
+}
+    </script>
+  </head>
+  <body onload="javascript: body_load();">
+    <div id="div_log">&nbsp;</div>
+  </body>
+</html>

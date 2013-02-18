@@ -1,0 +1,14 @@
+<job id="CleanTemp">
+    <script language="JScript" src="base64_robbie.js"/>
+    <script language="JScript" src="base64_robbie_test.js"/>
+    <script language="JScript">
+    /* Use cscript.exe to call me. */
+    var i;
+    var test_result;
+
+    test_result = RobbieTest_RunAll();
+    for (i = 0; i < test_result.length; ++i) {
+        WScript.Echo(test_result[i] ? "passed" : "FAILED");
+    }
+    </script>
+</job>
