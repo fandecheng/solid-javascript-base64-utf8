@@ -1,4 +1,4 @@
-﻿/* vim: set sts=4 ts=4 sw=4 et nojs fo-=ro fo+=ro: */
+/* vim: set sts=4 ts=4 sw=4 et nojs fo-=ro fo+=ro: */
 
 /*
 Copyright (c) 2013 Decheng Fan fandecheng_at_gmail.com
@@ -25,7 +25,9 @@ FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 */
 
-var FDCCommon = {
+(function() {
+var item;
+var fdccommon_temp = {
   TextUtil : {
     _HexMap : "0123456789abcdef",
     _HexRMap : [ -1, -1, -1, -1, -1, -1, -1, -1, /*  0~  7 */
@@ -684,3 +686,12 @@ var FDCCommon = {
 
   }
 };
+if (!this.FDCCommon) {
+    this.FDCCommon = fdccommon_temp;
+} else {
+    for (item in fdccommon_temp) {
+        this.FDCCommon[item] = fdccommon_temp[item];
+    }
+}
+})();
+
